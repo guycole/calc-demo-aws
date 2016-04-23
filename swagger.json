@@ -1,0 +1,150 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0",
+        "title": "CalcDemo",
+        "description": "AWS API Gateway/Lambda calculator demonstration",
+        "contact": {
+            "name": "Guy Cole",
+            "url": "https://github.com/guycole/calc-demo-aws"
+        }
+    },
+    "basePath": "/v1",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/calc": {
+            "post": {
+                "description": "perform calculation",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "happy happy joy joy",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Calculator"
+                        }
+                    }
+                ],
+                "x-amazon-apigateway-integration": {
+                    "responses": {
+                        "default": {
+                            "statusCode": "200",
+                            "responseTemplates": {
+                                "application/json": "__passthrough__"
+                            }
+                        }
+                    },
+                    "requestTemplates": {
+                        "application/json": "{\"body\":$input.json('$')}"
+                    },
+                    "credentials": "GateWayRoleArn",
+                    "httpMethod": "POST",
+                    "type": "aws",
+                    "uri": "arn:aws:apigateway:AwsRegion:lambda:path/2015-03-31/functions/LambdaArn/invocations"
+                }
+            }
+        },
+        "/calc/{operator}": {
+            "parameters": [
+                {
+                    "name": "operator",
+                    "in": "path",
+                    "description": "add, sub, mul, div",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "description": "perform calculation",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "happy happy joy joy",
+                        "schema": {
+                            "$ref": "#/definitions/Empty"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "operand1",
+                        "in": "query",
+                        "description": "first operand",
+                        "required": true,
+                        "type": "string",
+                        "default": "0"
+                    },
+                    {
+                        "name": "operand2",
+                        "in": "query",
+                        "description": "second operand",
+                        "required": true,
+                        "type": "string",
+                        "default": "0"
+                    }
+                ],
+                "x-amazon-apigateway-integration": {
+                    "responses": {
+                        "default": {
+                            "statusCode": "200",
+                            "responseTemplates": {
+                                "application/json": "__passthrough__"
+                            }
+                        }
+                    },
+                    "requestTemplates": {
+                        "application/json": "{\"operator\":\"$input.params('operator')\", \"operand1\":\"$input.params('operand1')\", \"operand2\":\"$input.params('operand2')\"}"
+                    },
+                    "credentials": "GateWayRoleArn",
+                    "httpMethod": "POST",
+                    "type": "aws",
+                    "uri": "arn:aws:apigateway:AwsRegion:lambda:path/2015-03-31/functions/LambdaArn/invocations"
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Empty": {
+            "type": "object"
+        },
+        "Calculator": {
+            "description": "JSON payload",
+            "type": "object",
+            "required": [
+                "operator",
+                "operand1",
+                "operand2"
+            ],
+            "properties": {
+                "operator": {
+                    "description": "add, sub, mul, div",
+                    "type": "string"
+                },
+                "operand1": {
+                    "description": "first operand",
+                    "type": "string"
+                },
+                "operand2": {
+                    "description": "second operand",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
