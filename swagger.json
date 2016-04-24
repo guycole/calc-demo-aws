@@ -54,7 +54,7 @@
                     "credentials": "GateWayRoleArn",
                     "httpMethod": "POST",
                     "type": "aws",
-                    "uri": "arn:aws:apigateway:AwsRegion:lambda:path/2015-03-31/functions/LambdaArn/invocations"
+                    "uri": "arn:aws:apigateway:AwsRegion:lambda:path/2015-03-31/functions/LambdaCalcArn/invocations"
                 }
             }
         },
@@ -114,7 +114,7 @@
                     "credentials": "GateWayRoleArn",
                     "httpMethod": "POST",
                     "type": "aws",
-                    "uri": "arn:aws:apigateway:AwsRegion:lambda:path/2015-03-31/functions/LambdaArn/invocations"
+                    "uri": "arn:aws:apigateway:AwsRegion:lambda:path/2015-03-31/functions/LambdaCalcArn/invocations"
                 }
             }
         }

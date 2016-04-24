@@ -30,7 +30,7 @@
         },
         "Path": "/",
         "Policies": [{
-          "PolicyName": "presto-chango",
+          "PolicyName": "lambda-runner",
           "PolicyDocument": {
             "Version": "2012-10-17",
             "Statement": [{
@@ -90,6 +90,9 @@
   "Outputs": {
     "LambdaCalcArn": {
       "Value": {"Fn::GetAtt": ["CalcLambdaFunction", "Arn"]}
+    },
+    "GateWayRoleArn": {
+      "Value": {"Fn::GetAtt": ["GateWayRole", "Arn"]}
     }
   }
 }
