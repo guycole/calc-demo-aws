@@ -4,6 +4,7 @@
 
 4 function calculator web service (API Gateway) which invokes Lambda (python) to perform operation and return results.
 
+http://guycole.blogspot.com/2013/05/what-to-code-after-hello-android.html
 
 ## Installation
 
@@ -23,6 +24,8 @@
 
 *  Prepare swagger.json for API Gateway
 ```
+    edit swagger.json
+
     update credentials (2 references) w/GateWayRoleArn from Cloud Formation outputs tab
     "credentials": "GateWayRoleArn", //original
     "credentials": "arn:aws:iam::123456789:role/calc-GateWayRole" //tweaked
