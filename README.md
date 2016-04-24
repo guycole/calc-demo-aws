@@ -4,7 +4,7 @@
 
 4 function calculator web service (API Gateway) which invokes Lambda (python) to perform operation and return results.
 
-http://guycole.blogspot.com/2013/05/what-to-code-after-hello-android.html
+http://guycole.blogspot.com/2016/04/aws-api-gateway-and-lamba-python.html
 
 ## Installation
 
