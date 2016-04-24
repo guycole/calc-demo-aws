@@ -42,7 +42,17 @@ http://guycole.blogspot.com/2013/05/what-to-code-after-hello-android.html
 ---
 
 ## Operation (from AWS console)
-*  Stub
+*  HTTP Get Test (press "Test" to continue)
+![alt text](https://github.com/guycole/calc-demo-aws/blob/master/images/screenshot1.png "Screen Shot 1")
+
+*  Insert values into text boxes, press "Test" and observe update
+![alt text](https://github.com/guycole/calc-demo-aws/blob/master/images/screenshot2.png "Screen Shot 2")
+
+* HTTP Post Test (press "Test" to continue)
+![alt text](https://github.com/guycole/calc-demo-aws/blob/master/images/screenshot3.png "Screen Shot 3")
+
+*  Insert values into text boxes, press "Test" and observe update
+![alt text](https://github.com/guycole/calc-demo-aws/blob/master/images/screenshot4.png "Screen Shot 4")
 
 ---
 
